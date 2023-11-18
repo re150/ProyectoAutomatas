@@ -1,3 +1,5 @@
+package automata1;
+
 public class ValidarExpresionRegular {
     char estado;
     public String validarExpresionRegular(String entrada){
