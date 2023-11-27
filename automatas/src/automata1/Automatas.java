@@ -46,7 +46,7 @@ public class Automatas {
                 while((datos =lector.readLine()) != null ){
                     i++;
                     input1 = datos;
-               System.out.println("datos = " + datos);
+           //    System.out.println("datos = " + datos);
                 }
             }
         } catch (IOException e) {

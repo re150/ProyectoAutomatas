@@ -33,6 +33,7 @@ public class Editor extends JFrame  {
         setLocationRelativeTo(null);
         setVisible(true);
         init();
+        editor2.setEditable(false);
 
         FileNameExtensionFilter filter = new FileNameExtensionFilter("Archivos de texto", "txt");
         fileChooser.setFileFilter(filter);
@@ -54,7 +55,7 @@ public class Editor extends JFrame  {
                     java.io.File archivoSeleccionado = fileChooser.getSelectedFile();
                     try (FileWriter escritor = new FileWriter(archivoSeleccionado.getAbsolutePath())) {
                         escritor.write(editor1.getText());
-                        System.out.println("Cambios guardados en: " + archivoSeleccionado.getAbsolutePath());
+                       // System.out.println("Cambios guardados en: " + archivoSeleccionado.getAbsolutePath());
                     } catch (IOException ex) {
                     }
                 }
@@ -67,9 +68,13 @@ public class Editor extends JFrame  {
             @Override
             public void actionPerformed(ActionEvent e) {
                 try {
+                    editor2.setText("");
                     String contenido ="";
-                    contenido= getarchivoTextarea();
-                    new Automatas(contenido);
+                    contenido= getarchivoTextarea() + "\n";
+
+                    Automata a  = new Automata(contenido);
+                    editor2.setText(a.toString());
+
                 }catch (Exception ex){
 
                 }
@@ -146,7 +151,6 @@ public class Editor extends JFrame  {
         if(contenido.isEmpty()){
             JOptionPane.showMessageDialog(null,"No se seleccionó un  archivo");
         }
-        System.out.println(contenido);
         return contenido;
     }
 

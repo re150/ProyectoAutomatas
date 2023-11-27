@@ -17,5 +17,5 @@ default
 	while ( num < 3 )
 		break
 
-/*Se termino*/
+/*Se termino
 }
